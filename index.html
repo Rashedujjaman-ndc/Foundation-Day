@@ -486,7 +486,21 @@ align-items:center;
 }
 .pay-card:hover{border-color:var(--bdrh);transform:translateY(-3px);box-shadow:0 8px 28px rgba(22,55,200,0.25)}
 .pay-card.open{border-color:var(--sky);box-shadow:0 0 20px rgba(79,168,255,0.2)}
-.pay-head{display:flex;align-items:center;justify-content:space-between}
+.pay-head{
+  position:relative;
+  display:flex;
+  justify-content:center; /* keeps B and N in middle */
+  align-items:center;
+}
+
+.pay-chevron{
+  position:absolute;
+  right:0; /* arrow stays right */
+  top:50%;
+  transform:translateY(-50%);
+  font-size:16px;
+  color:var(--sky);
+}
 .pay-logo-txt{font-size:24px;font-weight:900}
 .pay-name{font-size:14px;font-weight:700;margin-top:6px}
 .pay-tap{font-size:11px;color:var(--sky);opacity:0.65;margin-top:2px}
