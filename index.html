@@ -661,6 +661,84 @@ footer .f-brand{
 @media(max-width:380px){
   .stats-row{grid-template-columns:1fr 1fr}
 }
+/* RSVP GRID */
+.reg-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-bottom:18px;
+}
+
+/* CARD */
+.reg-card{
+  text-align:center;
+  padding:22px 16px;
+  position:relative;
+  overflow:hidden;
+}
+
+.reg-card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,0.05),
+    transparent 60%
+  );
+  pointer-events:none;
+}
+
+.reg-card.active{
+  border-color:var(--sky);
+  box-shadow:0 0 24px rgba(79,168,255,0.25);
+  transform:translateY(-2px);
+}
+
+/* TOP BADGES */
+.reg-badge{
+  display:inline-block;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.14em;
+  margin-bottom:14px;
+}
+
+.alumni-badge{
+  background:rgba(79,168,255,0.15);
+  color:#7cc4ff;
+  border:1px solid rgba(79,168,255,0.3);
+}
+
+.regular-badge{
+  background:rgba(247,206,85,0.12);
+  color:#f7ce55;
+  border:1px solid rgba(247,206,85,0.3);
+}
+
+.pmba-badge{
+  background:rgba(255,96,96,0.12);
+  color:#ff7a7a;
+  border:1px solid rgba(255,96,96,0.3);
+}
+
+/* TITLE */
+.reg-title{
+  font-size:15px;
+  font-weight:800;
+  line-height:1.5;
+  color:white;
+  margin-bottom:8px;
+}
+
+/* MOBILE */
+@media(max-width:700px){
+  .reg-grid{
+    grid-template-columns:1fr;
+  }
+}
 </style>
 </head>
 <body>
@@ -940,13 +1018,61 @@ footer .f-brand{
 <!-- RSVP FORM -->
 <section class="fade" style="transition-delay:.32s">
   <h2 class="sec-title"><span class="sec-icon">📝</span> RSVP — Register Now</h2>
-  <p style="font-size:14px;color:var(--dim);opacity:0.7;margin-bottom:16px">
+
+  <p style="font-size:14px;color:var(--dim);opacity:0.7;margin-bottom:18px">
     Confirm your attendance by filling out the form below. Seats are limited!
   </p>
-  <div class="form-shell">
+
+  <!-- REGISTRATION TYPE BOXES -->
+  <div class="pay-grid" style="margin-bottom:18px">
+
+    <!-- Alumni -->
+    <div class="pay-card reg-card active"
+         onclick="openForm(this,
+         'https://docs.google.com/forms/d/e/1FAIpQLSdKgBisw1skRtoS4IIu8NZcwxBnvraLxj6emeMwoneZsxc_Eg/viewform?embedded=true')">
+
+      <div class="pay-head">
+        <span class="pay-logo-txt" style="color:#4fa8ff">A</span>
+      </div>
+
+      <div class="pay-name">Alumni Registration Form</div>
+      <div class="pay-tap">Tap to open form</div>
+    </div>
+
+    <!-- Regular Students -->
+    <div class="pay-card reg-card"
+         onclick="openForm(this,
+         'https://docs.google.com/forms/d/e/1FAIpQLSdKgBisw1skRtoS4IIu8NZcwxBnvraLxj6emeMwoneZsxc_Eg/viewform?embedded=true')">
+
+      <div class="pay-head">
+        <span class="pay-logo-txt" style="color:#f7ce55">R</span>
+      </div>
+
+      <div class="pay-name">Regular Students Registration Form</div>
+      <div class="pay-tap">Tap to open form</div>
+    </div>
+
+    <!-- PMBA & EMBA -->
+    <div class="pay-card reg-card"
+         onclick="openForm(this,
+         'https://docs.google.com/forms/d/e/1FAIpQLSdKgBisw1skRtoS4IIu8NZcwxBnvraLxj6emeMwoneZsxc_Eg/viewform?embedded=true')">
+
+      <div class="pay-head">
+        <span class="pay-logo-txt" style="color:#ff6060">P</span>
+      </div>
+
+      <div class="pay-name">PMBA & EMBA Students Registration Form</div>
+      <div class="pay-tap">Tap to open form</div>
+    </div>
+
+  </div>
+
+  <!-- FORM VIEWER -->
+  <div class="form-shell" id="dynamic-form-shell">
     <iframe
+      id="dynamic-form"
       src="https://docs.google.com/forms/d/e/1FAIpQLSdKgBisw1skRtoS4IIu8NZcwxBnvraLxj6emeMwoneZsxc_Eg/viewform?embedded=true"
-      title="19th Foundation Day Registration"
+      title="Registration Form"
       loading="lazy">
       Loading form…
     </iframe>
@@ -1291,6 +1417,24 @@ function toggleMusic(){
     oscNodes=[];playing=false;btn.textContent='🎵';
     showToast('🔇 Music off');
   }
+}
+/* ═══════════════════════════
+   DYNAMIC REGISTRATION FORM
+═══════════════════════════ */
+function openForm(card,formURL){
+
+  document.querySelectorAll('.reg-card')
+    .forEach(c=>c.classList.remove('active'));
+
+  card.classList.add('active');
+
+  document.getElementById('dynamic-form').src=formURL;
+
+  document.getElementById('dynamic-form-shell')
+    .scrollIntoView({
+      behavior:'smooth',
+      block:'center'
+    });
 }
 </script>
 </body>
