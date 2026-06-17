@@ -541,6 +541,79 @@ align-items:center;
 }
 .pay-num{font-size:18px;font-weight:800;letter-spacing:0.06em;color:var(--white);margin:4px 0}
 .pay-hint{font-size:11px;color:var(--dim);opacity:0.55}
+.payment-group-grid{
+  grid-template-columns:repeat(3,1fr);
+}
+
+.payment-group .pay-body{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .5s ease;
+}
+
+.payment-group.open .pay-body{
+  max-height:1200px;
+}
+
+.payment-methods{
+  margin-top:20px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+}
+
+.method-card{
+  padding:18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.04);
+  border:1px solid var(--bdr);
+  text-align:left;
+}
+
+.bank-card{
+  border-color:rgba(79,168,255,.35);
+}
+
+.bkash-card{
+  border-color:rgba(226,19,110,.35);
+}
+
+.nagad-card{
+  border-color:rgba(242,101,34,.35);
+}
+
+.method-title{
+  font-size:22px;
+  font-weight:800;
+  margin-bottom:16px;
+}
+
+.method-label{
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--sky);
+  opacity:.7;
+  margin-top:12px;
+}
+
+.method-number{
+  font-size:28px;
+  font-weight:800;
+  margin:8px 0;
+}
+
+.method-text{
+  font-size:14px;
+  color:var(--dim);
+  line-height:1.6;
+}
+
+.method-card hr{
+  border:none;
+  border-top:1px solid rgba(255,255,255,.12);
+  margin:18px 0;
+}
 
 /* ══════════════════════════
    HIGHLIGHTS / STATS
@@ -757,8 +830,8 @@ footer .f-brand{
 }
 
 /* MOBILE */
-@media(max-width:700px){
-  .reg-grid{
+@media(max-width:900px){
+  .payment-group-grid{
     grid-template-columns:1fr;
   }
 }
@@ -1016,40 +1089,180 @@ footer .f-brand{
     Choose your preferred payment method. Tap a card to see details.
   </p>
 
-  <div class="pay-grid">
-    <div class="pay-card" onclick="togglePay(this)">
-      <div class="pay-head">
-        <span class="pay-logo-txt" style="color:#e2136e">B</span>
-        <span class="pay-chevron">⌄</span>
+<div class="pay-grid payment-group-grid">
+
+  <!-- Alumni -->
+  <div class="pay-card payment-group" onclick="togglePay(this)">
+    <div class="pay-head">
+      <div>
+        <div class="pay-logo-txt">🎓</div>
+        <div class="pay-name">Alumni</div>
+        <div class="pay-tap">Tap to expand</div>
       </div>
-      <div class="pay-name">bKash</div>
-      <div class="pay-tap">Send Money · Tap to expand</div>
-      <div class="pay-body">
-        <div class="pay-inner">
-          <div class="pay-hint">Personal Number</div>
-          <div class="pay-num">01823261788</div>
-          <div class="pay-hint">·Asadujjaman Siyam ; 18th Batch</div>
-          <div class="pay-num">01408667151</div>
-          <div class="pay-hint">Ibrahim Rafi ; 18th Batch</div>
-        </div>
-      </div>
+      <span class="pay-chevron">⌄</span>
     </div>
-    <div class="pay-card" onclick="togglePay(this)">
-      <div class="pay-head">
-        <span class="pay-logo-txt" style="color:#f26522">N</span>
-        <span class="pay-chevron">⌄</span>
-      </div>
-      <div class="pay-name">Nagad</div>
-      <div class="pay-tap">Send Money · Tap to expand</div>
-      <div class="pay-body">
-        <div class="pay-inner">
-          <div class="pay-hint">Personal Number</div>
-          <div class="pay-num">01823261788</div>
-          <div class="pay-hint">Asadujjaman Siyam, 18th Batch</div>
+
+    <div class="pay-body">
+      <div class="payment-methods">
+
+        <!-- Bank -->
+        <div class="method-card bank-card">
+          <div class="method-title">🏦 Bank</div>
+
+          <div class="method-label">Bank Account Number</div>
+          <div class="method-number">1234567890123456</div>
+
+          <div class="method-label">Bank Name</div>
+          <div class="method-text">Dutch-Bangla Bank PLC</div>
+
+          <div class="method-label">Account Holder</div>
+          <div class="method-text">Asadujjaman Siyam</div>
         </div>
+
+        <!-- bKash -->
+        <div class="method-card bkash-card">
+          <div class="method-title">B bKash</div>
+
+          <div class="method-number">01823261788</div>
+          <div class="method-text">
+            Asadujjaman Siyam · 18th Batch
+          </div>
+
+          <hr>
+
+          <div class="method-number">01408667151</div>
+          <div class="method-text">
+            Ibrahim Rafi · 18th Batch
+          </div>
+        </div>
+
+        <!-- Nagad -->
+        <div class="method-card nagad-card">
+          <div class="method-title">N Nagad</div>
+
+          <div class="method-number">01823261788</div>
+          <div class="method-text">
+            Asadujjaman Siyam · 18th Batch
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
+
+  <!-- Regular Students -->
+  <div class="pay-card payment-group" onclick="togglePay(this)">
+    <div class="pay-head">
+      <div>
+        <div class="pay-logo-txt">🎓</div>
+        <div class="pay-name">Regular Students</div>
+        <div class="pay-tap">Tap to expand</div>
+      </div>
+      <span class="pay-chevron">⌄</span>
+    </div>
+
+    <div class="pay-body">
+      <div class="payment-methods">
+
+        <div class="method-card bank-card">
+          <div class="method-title">🏦 Bank</div>
+
+          <div class="method-label">Bank Account Number</div>
+          <div class="method-number">1234567890123456</div>
+
+          <div class="method-label">Bank Name</div>
+          <div class="method-text">Dutch-Bangla Bank PLC</div>
+
+          <div class="method-label">Account Holder</div>
+          <div class="method-text">Asadujjaman Siyam</div>
+        </div>
+
+        <div class="method-card bkash-card">
+          <div class="method-title">B bKash</div>
+
+          <div class="method-number">01823261788</div>
+          <div class="method-text">
+            Asadujjaman Siyam · 18th Batch
+          </div>
+
+          <hr>
+
+          <div class="method-number">01408667151</div>
+          <div class="method-text">
+            Ibrahim Rafi · 18th Batch
+          </div>
+        </div>
+
+        <div class="method-card nagad-card">
+          <div class="method-title">N Nagad</div>
+
+          <div class="method-number">01823261788</div>
+          <div class="method-text">
+            Asadujjaman Siyam · 18th Batch
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- PMBA & EMBA -->
+  <div class="pay-card payment-group" onclick="togglePay(this)">
+    <div class="pay-head">
+      <div>
+        <div class="pay-logo-txt">🎓</div>
+        <div class="pay-name">PMBA & EMBA Students</div>
+        <div class="pay-tap">Tap to expand</div>
+      </div>
+      <span class="pay-chevron">⌄</span>
+    </div>
+
+    <div class="pay-body">
+      <div class="payment-methods">
+
+        <div class="method-card bank-card">
+          <div class="method-title">🏦 Bank</div>
+
+          <div class="method-label">Bank Account Number</div>
+          <div class="method-number">1234567890123456</div>
+
+          <div class="method-label">Bank Name</div>
+          <div class="method-text">Dutch-Bangla Bank PLC</div>
+
+          <div class="method-label">Account Holder</div>
+          <div class="method-text">Asadujjaman Siyam</div>
+        </div>
+
+        <div class="method-card bkash-card">
+          <div class="method-title">B bKash</div>
+
+          <div class="method-number">01823261788</div>
+          <div class="method-text">
+            Asadujjaman Siyam · 18th Batch
+          </div>
+
+          <hr>
+
+          <div class="method-number">01408667151</div>
+          <div class="method-text">
+            Ibrahim Rafi · 18th Batch
+          </div>
+        </div>
+
+        <div class="method-card nagad-card">
+          <div class="method-title">N Nagad</div>
+
+          <div class="method-number">01823261788</div>
+          <div class="method-text">
+            Asadujjaman Siyam · 18th Batch
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</div>
 </section>
 
 <div class="divider"></div>
@@ -1407,9 +1620,15 @@ function toggleFaq(btn){
    PAYMENT TOGGLE
 ═══════════════════════════ */
 function togglePay(el){
-  const was=el.classList.contains('open');
-  document.querySelectorAll('.pay-card').forEach(c=>c.classList.remove('open'));
-  if(!was)el.classList.add('open');
+  const was = el.classList.contains('open');
+
+  document
+    .querySelectorAll('.payment-group')
+    .forEach(c => c.classList.remove('open'));
+
+  if(!was){
+    el.classList.add('open');
+  }
 }
 
 /* ═══════════════════════════
