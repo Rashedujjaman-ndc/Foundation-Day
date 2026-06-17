@@ -439,20 +439,43 @@ body{
 /* ══════════════════════════
    PAYMENT
 ══════════════════════════ */
-.fee-badge{
+.fee-list{
   display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-
-  width:fit-content;
+  flex-direction:column;
+  width:100%;
+  max-width:550px;
+  margin:0 auto 16px;
 
   background:rgba(247,206,85,0.1);
   border:1px solid rgba(247,206,85,0.3);
   border-radius:14px;
-  padding:14px 22px;
+  overflow:hidden;
+}
 
-  margin:0 auto 16px;
+.fee-row{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  padding:16px 22px;
+}
+
+.fee-row:not(:last-child){
+  border-bottom:1px solid rgba(247,206,85,0.2);
+}
+
+.fee-row .fee-amount{
+  font-size:26px;
+  font-weight:900;
+  color:var(--gold);
+  white-space:nowrap;
+}
+
+.fee-row .fee-note{
+  font-size:13px;
+  color:var(--dim);
+  opacity:0.8;
+  text-align:right;
 }
 .fee-amount{font-size:26px;font-weight:900;color:var(--gold)}
 .fee-note{font-size:12px;color:var(--dim);opacity:0.65}
@@ -970,10 +993,24 @@ footer .f-brand{
     </div>
   </div>
 
-  <div class="fee-badge">
-    <span class="fee-amount">Tk 300</span>
-    <span class="fee-note">Registration fee · Regular students only</span>
+ <div class="fee-badge fee-list">
+
+  <div class="fee-row">
+    <span class="fee-amount">Tk 1000</span>
+    <span class="fee-note">Registration fee · Alumni</span>
   </div>
+
+  <div class="fee-row">
+    <span class="fee-amount">Tk 1000</span>
+    <span class="fee-note">Registration fee · PMBA &amp; EMBA Students</span>
+  </div>
+
+  <div class="fee-row">
+    <span class="fee-amount">Tk 300</span>
+    <span class="fee-note">Registration fee · Regular Students</span>
+  </div>
+
+</div>
 
   <p style="font-size:13px;color:var(--dim);opacity:0.65;margin-bottom:14px">
     Choose your preferred payment method. Tap a card to see details.
