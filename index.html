@@ -856,48 +856,44 @@ footer .f-brand{
 .register-now-box{
   display:flex;
   align-items:center;
-  gap:16px;
+  justify-content:center;
+
+  gap:18px;
 
   text-decoration:none;
   color:inherit;
 
-  background:linear-gradient(
-    135deg,
-    rgba(22,55,200,.35),
-    rgba(79,168,255,.12)
-  );
+  background:var(--glass);
+  border:1px solid var(--bdr);
+  border-radius:var(--r);
 
-  border:1px solid rgba(79,168,255,.30);
-  border-radius:20px;
-
-  padding:22px;
-  margin-top:10px;
+  padding:26px 24px;
 
   backdrop-filter:blur(12px);
 
   transition:
-    transform .25s,
     border-color .25s,
+    transform .25s,
     box-shadow .25s;
 }
 
 .register-now-box:hover{
-  transform:translateY(-3px);
   border-color:var(--bdrh);
-  box-shadow:0 10px 30px rgba(22,55,200,.25);
+  transform:translateY(-3px);
+  box-shadow:0 8px 30px rgba(22,55,200,0.25);
 }
 
 .register-icon{
-  font-size:36px;
+  font-size:34px;
   flex-shrink:0;
 }
 
 .register-content{
-  flex:1;
+  text-align:center;
 }
 
 .register-label{
-  font-size:10px;
+  font-size:11px;
   font-weight:700;
   letter-spacing:.16em;
   text-transform:uppercase;
@@ -906,21 +902,22 @@ footer .f-brand{
 }
 
 .register-title{
-  font-size:20px;
+  font-size:34px;
   font-weight:800;
+  line-height:1.1;
 }
 
 .register-sub{
-  font-size:13px;
+  font-size:15px;
   color:var(--dim);
   opacity:.75;
-  margin-top:4px;
+  margin-top:6px;
 }
 
 .register-arrow{
   font-size:26px;
   color:var(--sky);
-  font-weight:700;
+  flex-shrink:0;
 }
 </style>
 </head>
