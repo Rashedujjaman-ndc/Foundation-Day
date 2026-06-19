@@ -501,7 +501,7 @@ body{
 .pay-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .pay-card{
   background:var(--glass);border:1px solid var(--bdr);
-  border-radius:var(--r);padding:20px;cursor:pointer;
+  border-radius:var(--r);padding:8px;cursor:pointer;
   backdrop-filter:blur(12px);
   transition:border-color 0.2s,transform 0.25s,box-shadow 0.25s;
   user-select:none;text-align:center;
@@ -524,7 +524,7 @@ align-items:center;
   font-size:16px;
   color:var(--sky);
 }
-.pay-logo-txt{font-size:24px;font-weight:900}
+.pay-logo-txt{font-size:20px;font-weight:900}
 .pay-name{font-size:14px;font-weight:700;margin-top:6px}
 .pay-tap{font-size:11px;color:var(--sky);opacity:0.65;margin-top:2px}
 .pay-chevron{font-size:16px;color:var(--sky);transition:transform 0.3s}
@@ -833,7 +833,7 @@ footer .f-brand{
 /* MOBILE */
 @media(max-width:900px){
   .payment-group-grid{
-    grid-template-columns:1fr;
+    grid-template-columns:repeat(3,1fr);
   }
 }
 </style>
