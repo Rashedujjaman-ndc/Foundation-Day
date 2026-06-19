@@ -852,6 +852,76 @@ footer .f-brand{
     grid-template-columns:1fr 1fr 1fr;
   }
 }
+/* REGISTER NOW BOX */
+.register-now-box{
+  display:flex;
+  align-items:center;
+  gap:16px;
+
+  text-decoration:none;
+  color:inherit;
+
+  background:linear-gradient(
+    135deg,
+    rgba(22,55,200,.35),
+    rgba(79,168,255,.12)
+  );
+
+  border:1px solid rgba(79,168,255,.30);
+  border-radius:20px;
+
+  padding:22px;
+  margin-top:10px;
+
+  backdrop-filter:blur(12px);
+
+  transition:
+    transform .25s,
+    border-color .25s,
+    box-shadow .25s;
+}
+
+.register-now-box:hover{
+  transform:translateY(-3px);
+  border-color:var(--bdrh);
+  box-shadow:0 10px 30px rgba(22,55,200,.25);
+}
+
+.register-icon{
+  font-size:36px;
+  flex-shrink:0;
+}
+
+.register-content{
+  flex:1;
+}
+
+.register-label{
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--sky);
+  margin-bottom:4px;
+}
+
+.register-title{
+  font-size:20px;
+  font-weight:800;
+}
+
+.register-sub{
+  font-size:13px;
+  color:var(--dim);
+  opacity:.75;
+  margin-top:4px;
+}
+
+.register-arrow{
+  font-size:26px;
+  color:var(--sky);
+  font-weight:700;
+}
 </style>
 </head>
 <body>
@@ -943,6 +1013,24 @@ footer .f-brand{
       <div class="stat-lbl">Memories</div>
     </div>
   </div>
+</section>
+
+<div class="divider"></div>
+  <!-- REGISTER NOW QUICK BUTTON -->
+<section class="fade" style="transition-delay:.2s">
+  <a href="#rsvp-section" class="register-now-box">
+    <span class="register-icon">📝</span>
+
+    <div class="register-content">
+      <div class="register-label">Registration Open</div>
+      <div class="register-title">Register Now</div>
+      <div class="register-sub">
+        Tap here to go directly to the registration form
+      </div>
+    </div>
+
+    <span class="register-arrow">→</span>
+  </a>
 </section>
 
 <div class="divider"></div>
@@ -1285,7 +1373,7 @@ footer .f-brand{
 <div class="divider"></div>
 
 <!-- RSVP FORM -->
-<section class="fade" style="transition-delay:.32s">
+<section id="rsvp-section" class="fade" style="transition-delay:.32s">
   <h2 class="sec-title"><span class="sec-icon">📝</span> RSVP — Register Now</h2>
 
   <p style="font-size:15px;color:var(--dim);opacity:0.7;margin-bottom:18px">
